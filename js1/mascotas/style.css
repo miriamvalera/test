@@ -1,0 +1,42 @@
+body{
+    width: 80%;
+    margin: auto;
+}
+header{
+    background-color: cadetblue;
+    padding: 5%;
+}
+section{
+    background-color: cornflowerblue;
+    padding: 5%;
+    position: relative;
+}
+#carrito{
+    /* display: none; */
+    position: absolute;
+    top: 0.5%;
+    right: 2%;
+    width: 15%;
+    height: auto;
+    border: 1px solid #000;
+    border-radius: 3%;
+}
+footer{
+    background-color: aquamarine;
+    padding: 5%;
+}
+
+.item-mascota{
+    border:1px solid green;
+    margin: 10px;
+    padding: 1em;
+}
+
+.item-mascota.seleccionado{
+    background: #0f0;
+}
+
+.item-mascota.seleccionado button{
+    background: red;
+    color: white;
+}

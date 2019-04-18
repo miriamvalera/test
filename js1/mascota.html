@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio mostrar lista de 1000 nombres de mascotas</title>
+</head>
+<body>
+	<!--Genera una función que genere los 1000 nombres (mascota1, mascota2,...) y muestra la lista en la página web-->
+<!------------------ html para el script opción 1--------------------->
+	<section>
+		<ul id="listam"></ul>
+	</section>
+	
+
+</body>
+<!------------------opción 1--------------------->
+<script>
+	const generadorMascotas = function(){
+		let mascotas = [];
+
+		for(let i=1; i<=1000; i++){
+			mascotas.push('Mascota '+ i);
+		}
+		// console.log('Mascotas:', mascotas);
+		return mascotas;
+	}
+
+
+	const imprimeMascotas = function(idanclaje){
+		const puntoAnclaje = document.getElementById(idanclaje);
+		const mascotas = generadorMascotas();
+		let plantillMascotas = '';
+
+		for(let i=0; i<mascotas.length; i++){
+			plantillMascotas += '<li>' + mascotas[i] + '</li>';
+		}
+		// console.log(plantillMascotas);
+		puntoAnclaje.innerHTML = plantillMascotas;
+	}
+	imprimeMascotas('listam');	
+	// generadorMascotas();
+
+</script>
+
+<!------------------opción 2--------------------->
+<script>
+	(function(idanclaje){
+		const generadorMascotas = function(){
+			let mascotas = [];
+
+			for(let i=1; i<=1000; i++){
+				mascotas.push('Mascota '+ i);
+			}
+			// console.log('Mascotas:', mascotas);
+			return mascotas;
+		}
+
+
+		const imprimeMascotas = function(idanclaje){
+			const puntoAnclaje = document.getElementById(idanclaje);
+			const mascotas = generadorMascotas();
+			let plantillMascotas = '';
+
+			for(let i=0; i<mascotas.length; i++){
+				plantillMascotas += '<li>' + mascotas[i] + '</li>';
+			}
+			// console.log(plantillMascotas);
+			puntoAnclaje.innerHTML = plantillMascotas;
+		}
+		imprimeMascotas(idanclaje);	
+		// generadorMascotas();
+	})('listam');
+</script>
+
+<!------------------opción 3--------------------->
+<!-- <script type="text/javascript">
+		
+		document.write('<ul>')
+		for(let i=1; i<=1000; i++){
+			document.write("<li>mascota " + i + "</li>");
+		}
+		document.write("</ul>");
+
+	</script> -->
+</html>

@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "nombre": "Gina",
+        "foto": "img/dog1.jpg",
+        "edad": 1
+    },
+    {
+        "id": 2,
+        "nombre": "Pixie",
+        "foto": "img/cat1.jpg",
+        "edad": 2
+    },
+    {
+        "id": 3,
+        "nombre": "Lasi",
+        "foto": "img/dog2.jpg",
+        "edad": 3
+    },
+    {
+        "id": 4,
+        "nombre": "Curro",
+        "foto": "img/dog3.jpg",
+        "edad": 2
+    },
+    {
+        "id": 5,
+        "nombre": "Lili",
+        "foto": "img/cat2.jpg",
+        "edad": 4
+    },
+    {
+        "id": 6,
+        "nombre": "Jovi",
+        "foto": "img/dog4.jpg",
+        "edad": 5
+    },
+    {
+        "id": 7,
+        "nombre": "Tristan",
+        "foto": "img/cat3.jpg",
+        "edad": 3
+    }
+ 
+]

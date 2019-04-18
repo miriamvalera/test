@@ -1,0 +1,39 @@
+body{
+	background-color: #e8e5e5;
+	margin: 0;
+}
+h1{
+	text-align: center;
+	font-family: 'Baloo Chettan', cursive;
+	color: #1DA1F2;
+}
+h1 i{
+	color: #FFF;
+	text-shadow: 2px 2px 12px #1DA1F2;
+	margin-right: 10px;
+}
+#main > article{
+	width: 60%;
+	margin: 2% auto;
+	background-color: #FFF;
+	padding: 5px;
+	box-shadow: 10px 10px 25px -1px rgba(0,0,0,0.49);
+}
+button{
+	border-radius: 8px;
+	background: #1DA1F2;
+	padding: 8px;
+	outline: none;
+	font-size: 1.5vw;
+	
+}
+p, span{
+	font-family: helvetica;
+}
+span{
+	margin-left: 2%;
+}
+.fas{
+	color: white;
+}
+

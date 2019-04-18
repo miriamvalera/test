@@ -1,0 +1,14 @@
+body{
+	width: auto;
+}
+button{
+	border-radius: 8px;
+	background: #6AF4E2;
+	padding: 8px;
+}
+p, span{
+	font-family: helvetica;
+}
+#resultado{
+	font-weight: bold;
+}

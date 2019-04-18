@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Mascotas orientado a Objetos</title>
+</head>
+<body>
+	<!--Genera una función que genere los 1000 nombres (mascota1, mascota2,...) y muestra la lista en la página web-->
+	<article >
+		<h2>Carrito</h2>
+			<ul id="carrito"></ul>	
+	</article>
+
+	<section>
+		<ul id="listam"></ul>
+	</section>
+
+</body>
+	<script type="text/javascript">
+		
+	(function(idanclaje, id2){
+		const carrito_store = [];
+		const mascotas_store = [];
+
+		const genNombre = function(items){
+			const item = items[Math.floor(Math.random()*items.length)]; //genera de forma aleatoria un elemento
+			return item;
+		}
+
+		const generadorMascotas = function(){
+			let mascotas = [];
+			const nombres = ['missy', 'rex', 'perro', 'bob', 'luna', 'max', 'sebas', 'gina', 'balto', 'taxi'];
+
+			for(let i=1; i<=1000; i++){
+				mascotas.push({id:i, nombre: genNombre(nombres)+' '+genNombre(nombres), edad:i, precio:i, disponible:true});
+			}
+			console.log('Mascotas:', mascotas);
+			return mascotas;
+		}
+
+
+		const imprimeMascotas = function(idanclaje){
+			const puntoAnclaje = document.getElementById(idanclaje);
+			const mascotas = generadorMascotas();
+			let plantillMascotas = '';
+
+			for(let i=0; i<mascotas.length; i++){
+				//Es una plantilla ES6, son accentos `` y se pone los {} para que sean objetos
+				plantillMascotas += `  
+				<li>
+					<span>id: ${mascotas[i].id}</span>
+					<span>nombre: ${mascotas[i].nombre}</span>
+					<span>edad: ${mascotas[i].edad}</span>
+					<span>precio: ${mascotas[i].precio} €</span>
+					<span><button data-id="${mascotas[i].id}" data-nombre="${mascotas[i].nombre}" data-precio="${mascotas[i].precio}" class="btn-comprar  
+					">Comprar</button></span>
+				</li>
+				`; 
+				//'<li>' + mascotas[i].id + '</li>';   añadimos los atributos que ns interesan
+			}
+
+			// console.log(plantillMascotas);
+			puntoAnclaje.innerHTML = plantillMascotas;
+
+			// console.log('imprimeMascotas: ', document.querySelectorAll('.btn-comprar'));
+			document.querySelectorAll('.btn-comprar').forEach(function(unBtn){ //el forEach recibe un parámetro que es una función
+				const id=unBtn.getAttribute('data-id');
+				const nom=unBtn.getAttribute('data-nombre');   //aquí las recogemos
+				const precio=unBtn.getAttribute('data-precio');
+
+				unBtn.onclick=function(){
+					const ya_added = carrito_store.includes(id);
+					if(!ya_added){
+						console.log(unBtn);
+						unBtn.style.backgroundColor = '#F48D92';
+						
+						const carrito = document.getElementById(id2);
+						var nuevo = document.createElement('li');
+						nuevo.innerHTML =  id + " : " + nom +" - "+ precio +" €";
+						carrito_store.push(id);
+						carrito.appendChild(nuevo);
+						
+						console.log('Carrito: ', carrito_store);
+						//ACTUALIZAR ESTADO MASCOTAS
+					}else{
+						console.log('Carrito: ya estaba añadido', id);
+					}
+					
+				}
+
+			});
+
+		}
+		imprimeMascotas(idanclaje);	
+		// generadorMascotas();
+	})('listam','carrito');
+
+	/*
+	1.- Añadimos la id carrito a la función global linea 87
+	2.- al ver en la linea 67 que llegaba la id  -> const id=unBtn.getAttribute('data-id');
+	3.- Hemos buscado donde agrega este atributo data-id
+	4.- hemos añadido más atributos que nos interesan linea 55  =  data-nombre="${mascotas[i].nombre}" data-precio="${mascotas[i].precio}" 
+	5.- En la linea 68 y 69 los recogemos 
+    6.- En la linea 70 de onclick function hemos añadido que haga innerhtml al id carrito cada vez que se ejecuta esta función
+    */
+
+    /*
+	unBtn.disable = true;
+	unBtn.parentElement.parentElement.style.color = "green";
+    */
+</script>
+</html>

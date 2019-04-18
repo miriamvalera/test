@@ -1,0 +1,19 @@
+body{
+	font-family: helvetica;
+	font-size: 2vw;
+}
+header{
+	color: #000;
+	background: #FC9BF6;
+	padding: 2em;
+}
+section{
+	color: #000;
+	background: #FCB69B;
+	padding: 2em;
+}
+footer{
+	color: #000;
+	background: #A6F7CA;
+	padding: 2em;
+}

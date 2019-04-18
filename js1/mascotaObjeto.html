@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Mascotas orientado a Objetos</title>
+</head>
+<body>
+	<!--Genera una función que genere los 1000 nombres (mascota1, mascota2,...) y muestra la lista en la página web-->
+
+	<!-- Mascota: id, nombre, edad, precio 
+		 Tip: {id:23, nombre:'mascota23', edad:23, precio:23}-->
+	<section>
+		<ul id="listam"></ul>
+	</section>
+
+
+</body>
+	<script type="text/javascript">
+		
+	(function(idanclaje){
+		const genNombre = function(items){
+			const item = items[Math.floor(Math.random()*items.length)]; //genera de forma aleatoria un elemento
+			return item;
+		}
+
+		const generadorMascotas = function(){
+			let mascotas = [];
+			const nombres = ['missy', 'rex', 'perro', 'bob', 'luna', 'max', 'sebas', 'gina', 'balto', 'taxi'];
+
+			for(let i=1; i<=1000; i++){
+				mascotas.push({id:i, nombre: genNombre(nombres)+' '+genNombre(nombres), edad:i, precio:i});
+			}
+			console.log('Mascotas:', mascotas);
+			return mascotas;
+		}
+
+
+		const imprimeMascotas = function(idanclaje){
+			const puntoAnclaje = document.getElementById(idanclaje);
+			const mascotas = generadorMascotas();
+			let plantillMascotas = '';
+
+			for(let i=0; i<mascotas.length; i++){
+				//Es una plantilla ES6, son accentos `` y se pone los {} para que sean objetos
+				plantillMascotas += `  
+				<li>
+					<span>id: ${mascotas[i].id}</span>
+					<span>nombre: ${mascotas[i].nombre}</span>
+					<span>edad: ${mascotas[i].edad}</span>
+					<span>precio: ${mascotas[i].precio} €</span>
+					<span><button data-id="${mascotas[i].id}" class="btn-comprar
+					">Comprar</button></span>
+				</li>
+				`; 
+				//'<li>' + mascotas[i].id + '</li>';
+			}
+
+			// console.log(plantillMascotas);
+			puntoAnclaje.innerHTML = plantillMascotas;
+
+			// console.log('imprimeMascotas: ', document.querySelectorAll('.btn-comprar'));
+			document.querySelectorAll('.btn-comprar').forEach(function(unBtn){ //el forEach recibe un parámetro que es una función
+				const id=unBtn.getAttribute('data-id');
+				unBtn.onclick=function(){
+					alert('Áñadido: ' + id);
+				}
+			});
+
+		}
+		imprimeMascotas(idanclaje);	
+		// generadorMascotas();
+	})('listam');
+
+
+	/************
+	Transformar un objeto a un texto
+	const fuffy_var={id:254, nombre:'Fuffy', edad:12, sexo:true, foto:'fuffy.jpg', precio:120};
+	JSON.stringify(fuffy_var);
+	**************/
+
+	/************
+	Transformar de texto a objeto
+	let json_var = JSON.stringify(fuffy_var);
+	json_var
+	JSON.parse(json_var);
+	**************/
+</script>
+</html>
